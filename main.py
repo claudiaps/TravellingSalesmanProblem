@@ -32,5 +32,6 @@ def main():
 
     # print(matriz)
     genetico.gerar_populacao(52)
+    print(genetico.mutacao2([1, 2, 3, 4, 5]))
 
 main()
