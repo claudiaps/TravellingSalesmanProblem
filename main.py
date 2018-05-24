@@ -31,7 +31,8 @@ def main():
             matriz[i][j] = euclidiana(vet[i][0], vet[j][0], vet[i][1], vet[j][1])
 
     # print(matriz)
-    genetico.gerar_populacao(52)
-    print(genetico.mutacao2([1, 2, 3, 4, 5]))
+    populacao = genetico.gerar_populacao(5, dimenssao)
+    caminho, fit = genetico.genetico('mutacao2', populacao, genetico.fitness, 1, 5, matriz, 'ordenado', 10, 'elitismo')
+    print(caminho, fit)
 
 main()
