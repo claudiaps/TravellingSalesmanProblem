@@ -1,5 +1,6 @@
 import math
 import genetico
+import os
 
 def euclidiana(x1, x2, y1, y2):
     x = (x1 - x2)*(x1 - x2)
@@ -31,8 +32,15 @@ def main():
             matriz[i][j] = euclidiana(vet[i][0], vet[j][0], vet[i][1], vet[j][1])
 
     # print(matriz)
-    populacao = genetico.gerar_populacao(5, dimenssao)
-    caminho, fit = genetico.genetico('mutacao2', populacao, genetico.fitness, 1, 5, matriz, 'ordenado', 10, 'elitismo')
+    file.close()
+    populacao = genetico.gerar_populacao(300, dimenssao)
+    f = open("testes.txt", "a")
+    caminho, fit = genetico.genetico('mutacao2', populacao, genetico.fitness, 100, 5, matriz, 'alternativo', 30)
     print(caminho, fit)
+    f.write('\nAlternativo 2:\n')
+    f.write(str(caminho))
+    f.write('\n')
+    f.write(str(fit))
+    f.write('\n')    
 
 main()
